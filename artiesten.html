@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artiesten — Hieper Sounds</title>
+  <meta name="description" content="Boek artiesten voor uw evenement bij Hieper Sounds. Van jazz en bigband tot kinderentertainment en Nederlandstalige meezingers.">
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Righteous&display=swap" rel="stylesheet">
+  <!-- Umami analytics: configureer na deploy -->
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: { primary: '#1E1B4B', secondary: '#4338CA', cta: '#22C55E', dark: '#0F0F23', 'dark-card': 'rgba(30, 27, 75, 0.5)', 'dark-lighter': '#161638' },
+        fontFamily: { display: ['Righteous', 'sans-serif'], sans: ['Poppins', 'sans-serif'] }
+      }}
+    }
+  </script>
+  <style>
+    body { background: #0F0F23; color: #F8FAFC; font-family: 'Poppins', sans-serif; }
+    .glow-text { text-shadow: 0 0 20px rgba(67, 56, 202, 0.5), 0 0 40px rgba(67, 56, 202, 0.2); }
+    .glow-card { box-shadow: 0 0 30px rgba(67, 56, 202, 0.15), inset 0 1px 0 rgba(255,255,255,0.05); }
+    .glow-card:hover { box-shadow: 0 0 40px rgba(67, 56, 202, 0.3), inset 0 1px 0 rgba(255,255,255,0.1); }
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-dark/90 backdrop-blur-md border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <a href="index.html" class="flex items-center gap-3 cursor-pointer">
+          <img src="images/logo.png" alt="Hieper Sounds logo" class="h-8 w-8">
+          <span class="font-display text-xl text-white">Hieper Sounds</span>
+        </a>
+        <div class="hidden md:flex items-center gap-8">
+          <a href="index.html" class="text-gray-300 font-medium text-sm cursor-pointer transition-colors duration-200 hover:text-white">Home</a>
+          <a href="dj-shows.html" class="text-gray-300 font-medium text-sm cursor-pointer transition-colors duration-200 hover:text-white">DJ Shows</a>
+          <a href="djs.html" class="text-gray-300 font-medium text-sm cursor-pointer transition-colors duration-200 hover:text-white">DJ's</a>
+          <a href="artiesten.html" class="text-cta font-medium text-sm cursor-pointer transition-colors duration-200 hover:text-white">Artiesten</a>
+          <a href="verhuur.html" class="text-gray-300 font-medium text-sm cursor-pointer transition-colors duration-200 hover:text-white">Verhuur</a>
+          <a href="verkoop.html" class="text-gray-300 font-medium text-sm cursor-pointer transition-colors duration-200 hover:text-white">Verkoop</a>
+          <a href="contact.html" class="text-gray-300 font-medium text-sm cursor-pointer transition-colors duration-200 hover:text-white">Contact</a>
+          <a href="boeken.html" class="bg-cta hover:bg-green-400 text-dark font-semibold px-5 py-2.5 rounded-full text-sm cursor-pointer transition-all duration-200 hover:shadow-[0_0_20px_rgba(34,197,94,0.4)]">Boek Nu</a>
+        </div>
+        <button id="menu-toggle" class="md:hidden text-white cursor-pointer p-2 min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-dark/95 backdrop-blur-md border-t border-white/5">
+      <div class="px-4 py-6 space-y-4">
+        <a href="index.html" class="block text-gray-300 font-medium cursor-pointer py-2">Home</a>
+        <a href="dj-shows.html" class="block text-gray-300 font-medium cursor-pointer py-2">DJ Shows</a>
+        <a href="djs.html" class="block text-gray-300 font-medium cursor-pointer py-2">DJ's</a>
+        <a href="artiesten.html" class="block text-cta font-medium cursor-pointer py-2">Artiesten</a>
+        <a href="verhuur.html" class="block text-gray-300 font-medium cursor-pointer py-2">Verhuur</a>
+        <a href="verkoop.html" class="block text-gray-300 font-medium cursor-pointer py-2">Verkoop</a>
+        <a href="contact.html" class="block text-gray-300 font-medium cursor-pointer py-2">Contact</a>
+        <a href="boeken.html" class="block bg-cta text-dark font-semibold px-5 py-3 rounded-full text-center cursor-pointer mt-4">Boek Nu</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="pt-32 pb-16 relative">
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute top-1/3 left-1/3 w-80 h-80 bg-amber-500/10 rounded-full blur-[120px]"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+      <p class="text-cta font-semibold text-sm uppercase tracking-widest mb-4">Live Entertainment</p>
+      <h1 class="font-display text-5xl md:text-6xl glow-text mb-6">Artiesten</h1>
+      <p class="text-gray-300 text-lg max-w-2xl">Naast DJ's en andere diensten bieden wij ook hele leuke artiesten aan. Wilt u graag een artiest voor uw evenement of feest? Neem vrijblijvend contact op en wij vinden samen de best passende artiest. Alle artiesten worden aangeboden inclusief techniek en monitorset.</p>
+    </div>
+  </section>
+
+  <!-- Artiesten -->
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+      <div class="space-y-8">
+
+        <!-- Arno van den Elzen -->
+        <div class="glow-card bg-dark-card backdrop-blur-sm rounded-2xl border border-white/5 overflow-hidden transition-all duration-300 hover:-translate-y-1">
+          <div class="flex flex-col md:flex-row">
+            <div class="md:w-80 shrink-0 overflow-hidden">
+              <img src="images/arno-fb.jpg" alt="Arno van den Elzen" class="w-full h-full object-cover min-h-[300px]" loading="lazy">
+            </div>
+            <div class="p-8 flex-1">
+              <div class="flex flex-wrap items-center gap-3 mb-4">
+                <h3 class="font-display text-2xl text-white">Arno van den Elzen</h3>
+                <span class="bg-amber-500/20 text-amber-400 text-xs font-semibold px-3 py-1 rounded-full">Jazz</span>
+                <span class="bg-secondary/20 text-secondary text-xs font-semibold px-3 py-1 rounded-full">Feestmuziek</span>
+                <span class="bg-purple-500/20 text-purple-400 text-xs font-semibold px-3 py-1 rounded-full">Ballad</span>
+                <span class="bg-cta/20 text-cta text-xs font-semibold px-3 py-1 rounded-full">Meezingers</span>
+              </div>
+              <p class="text-gray-300 leading-relaxed">Frank Sinatra en Dean Martin, dát zijn de voorbeelden van Arno. Arno heeft al vanaf zijn jeugd een voorliefde voor bigband muziek, en crooners uit de jaren 50 en 60.</p>
+              <p class="text-gray-400 leading-relaxed mt-3">Na jaren op lokaal niveau Nederlandstalige- en carnavalsnummers gezonden te hebben is het tijd om ballads en swingnummers ten gehore te brengen. Een aantal jaar geleden is hij hiermee begonnen, en hij heeft inmiddels diverse keren podia gestaan met onder andere de KVA en tijdens de nacht van Oss. Daarnaast is Arno bekend in Theater de Lievekamp, en is zelfs met een grote BigBand te horen geweest in Los Angeles.</p>
+              <p class="text-gray-400 leading-relaxed mt-3">Arno droomt ervan om met een grote BigBand op te treden, en zowel vocaal als instrumentaal u te laten genieten uit het brede scala van jazznummers.</p>
+              <a href="boeken.html" class="mt-6 inline-block bg-secondary hover:bg-indigo-500 text-white font-semibold px-6 py-3 rounded-xl cursor-pointer transition-all duration-200 min-h-[44px]">Boek Arno</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bella Ballon -->
+        <div class="glow-card bg-dark-card backdrop-blur-sm rounded-2xl border border-white/5 overflow-hidden transition-all duration-300 hover:-translate-y-1">
+          <div class="flex flex-col md:flex-row">
+            <div class="md:w-80 shrink-0 overflow-hidden">
+              <img src="images/bella-ballon.jpg" alt="Bella Ballon" class="w-full h-full object-cover min-h-[300px]" loading="lazy">
+            </div>
+            <div class="p-8 flex-1">
+              <div class="flex flex-wrap items-center gap-3 mb-4">
+                <h3 class="font-display text-2xl text-white">Bella Ballon</h3>
+                <span class="bg-pink-500/20 text-pink-400 text-xs font-semibold px-3 py-1 rounded-full">Kinder Entertainment</span>
+                <span class="bg-amber-500/20 text-amber-400 text-xs font-semibold px-3 py-1 rounded-full">Ballon Artiest</span>
+                <span class="bg-cta/20 text-cta text-xs font-semibold px-3 py-1 rounded-full">Feestmuziek</span>
+              </div>
+              <p class="text-gray-300 leading-relaxed">Bella Ballon maakt ballonfiguren als de beste. In een handomdraai tovert Bella allerlei dieren te voorschijn van wat eerst simpele ballonnen waren. Ideaal voor kinderen van 2 t/m 10 jaar. En met haar shows ook ideaal voor op familiefeesten en voor grotere groepen.</p>
+              <p class="text-gray-400 leading-relaxed mt-3">Bella Ballon creëert namelijk niet alleen stralende kindergezichten, maar ook volwassen kijken hun ogen uit. Met de aanwezigheid van deze vrolijke verschijning ben je verzekerd van spetterend entertainment.</p>
+              <p class="text-gray-400 leading-relaxed mt-3">Bella zorgt voor een fantastische sfeer en bezorgd een onvergetelijke dag. Bella geeft lach garantie en stimuleert kinderen om te dromen.</p>
+              <a href="boeken.html" class="mt-6 inline-block bg-pink-600 hover:bg-pink-500 text-white font-semibold px-6 py-3 rounded-xl cursor-pointer transition-all duration-200 min-h-[44px]">Boek Bella Ballon</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tim en Emiel -->
+        <div class="glow-card bg-dark-card backdrop-blur-sm rounded-2xl border border-white/5 overflow-hidden transition-all duration-300 hover:-translate-y-1">
+          <div class="flex flex-col md:flex-row">
+            <div class="md:w-80 shrink-0 overflow-hidden">
+              <img src="images/artiesten-overzicht.jpg" alt="Tim en Emiel" class="w-full h-full object-cover min-h-[300px]" loading="lazy">
+            </div>
+            <div class="p-8 flex-1">
+              <div class="flex flex-wrap items-center gap-3 mb-4">
+                <h3 class="font-display text-2xl text-white">Tim en Emiel</h3>
+                <span class="bg-cta/20 text-cta text-xs font-semibold px-3 py-1 rounded-full">Nederlandstalig</span>
+                <span class="bg-secondary/20 text-secondary text-xs font-semibold px-3 py-1 rounded-full">Meezingers</span>
+                <span class="bg-amber-500/20 text-amber-400 text-xs font-semibold px-3 py-1 rounded-full">Feestmuziek</span>
+              </div>
+              <p class="text-gray-300 leading-relaxed">1988 bleek een fantastisch jaar te zijn toen vier trotse ouders, twee absolute feestnummers op de wereld hebben gezet. Als je niet beter zou weten, zou je zeggen dat ze kort daarna in een ketel met confetti zijn gevallen.</p>
+              <p class="text-gray-400 leading-relaxed mt-3">Inmiddels zijn ze alweer een aantal jaren bezig met hun passie, om iedere zaal volledig op zijn kop te zetten! Haal je Tim en Emiel in huis, dan staat dat garant voor maximaal feest, luidkeels meezingen. De dag erna kijk je met een grote glimlach, wat spierpijn van het dansen en een schorre keel van het zingen, terug op een onvergetelijke avond.</p>
+              <p class="text-gray-400 leading-relaxed mt-3">Het repertoire bestaat onder andere uit eigen werk en covers van bekende Nederlandstalige meezingers! Dit samen met een energieke en vrolijke act, draagt dat zorg voor een optreden om nooit meer te vergeten!</p>
+              <a href="boeken.html" class="mt-6 inline-block bg-cta hover:bg-green-400 text-dark font-semibold px-6 py-3 rounded-xl cursor-pointer transition-all duration-200 min-h-[44px]">Boek Tim en Emiel</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Arjen Tijs -->
+        <div class="glow-card bg-dark-card backdrop-blur-sm rounded-2xl border border-white/5 overflow-hidden transition-all duration-300 hover:-translate-y-1">
+          <div class="flex flex-col md:flex-row">
+            <div class="md:w-80 shrink-0 overflow-hidden">
+              <img src="images/dj-placeholder.png" alt="Arjen Tijs" class="w-full h-full object-cover min-h-[300px]" loading="lazy">
+            </div>
+            <div class="p-8 flex-1">
+              <div class="flex flex-wrap items-center gap-3 mb-4">
+                <h3 class="font-display text-2xl text-white">Arjen Tijs</h3>
+                <span class="bg-amber-500/20 text-amber-400 text-xs font-semibold px-3 py-1 rounded-full">Akoestisch</span>
+                <span class="bg-secondary/20 text-secondary text-xs font-semibold px-3 py-1 rounded-full">70's – nu</span>
+                <span class="bg-purple-500/20 text-purple-400 text-xs font-semibold px-3 py-1 rounded-full">Ballads</span>
+                <span class="bg-cta/20 text-cta text-xs font-semibold px-3 py-1 rounded-full">Duets</span>
+              </div>
+              <p class="text-gray-300 leading-relaxed">Voor de akoestische achtergrond muziek kunt u terecht bij Arjen Tijs. Arjen zorgt voor een rustige sfeer op uw receptie, huwelijksceremonie, tuinfeest of verjaardag.</p>
+              <p class="text-gray-400 leading-relaxed mt-3">Arjen Tijs speelt, en zingt voor u en uw gasten bekende hits vanaf de jaren '70 tot nu. Alle hits zijn in een akoestisch jasje gestoken.</p>
+              <a href="boeken.html" class="mt-6 inline-block bg-amber-500 hover:bg-amber-400 text-dark font-semibold px-6 py-3 rounded-xl cursor-pointer transition-all duration-200 min-h-[44px]">Boek Arjen Tijs</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Geluid bijboeken -->
+  <section class="py-16 bg-dark-lighter/30">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+      <div class="glow-card bg-dark-card backdrop-blur-sm rounded-2xl border border-white/5 p-8 md:p-12 text-center">
+        <h2 class="font-display text-3xl text-white mb-4">Geluid nodig bij uw artiest?</h2>
+        <p class="text-gray-400 max-w-2xl mx-auto">Alle artiesten worden aangeboden inclusief techniek en monitorset. Indien nodig kan er een geluidset passend voor uw event bijgeboekt worden.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+          <a href="boeken.html" class="bg-cta hover:bg-green-400 text-dark font-semibold px-8 py-4 rounded-full cursor-pointer transition-all duration-200 hover:shadow-[0_0_25px_rgba(34,197,94,0.4)] min-h-[44px]">Boek een artiest</a>
+          <a href="tel:0629801440" class="border border-white/20 hover:border-white/40 text-white font-medium px-8 py-4 rounded-full cursor-pointer transition-all duration-200 hover:bg-white/5 min-h-[44px]">06-29801440</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black/30 border-t border-white/5 py-16">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-12">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <img src="images/logo.png" alt="Hieper Sounds" class="h-8 w-8">
+            <span class="font-display text-xl text-white">Hieper Sounds</span>
+          </div>
+          <p class="text-gray-400 text-sm">We make your event.</p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-4">Diensten</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="dj-shows.html" class="text-gray-400 hover:text-white cursor-pointer transition-colors duration-200">DJ Shows</a></li>
+            <li><a href="djs.html" class="text-gray-400 hover:text-white cursor-pointer transition-colors duration-200">DJ's</a></li>
+            <li><a href="artiesten.html" class="text-gray-400 hover:text-white cursor-pointer transition-colors duration-200">Artiesten</a></li>
+            <li><a href="verhuur.html" class="text-gray-400 hover:text-white cursor-pointer transition-colors duration-200">Verhuur</a></li>
+            <li><a href="verkoop.html" class="text-gray-400 hover:text-white cursor-pointer transition-colors duration-200">Verkoop</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-4">Contact</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li>Schadewijkstraat 27, 5348 BA Oss</li>
+            <li><a href="tel:0629801440" class="hover:text-white cursor-pointer transition-colors duration-200">06-29801440</a></li>
+            <li><a href="mailto:info@hiepersounds.nl" class="hover:text-white cursor-pointer transition-colors duration-200">info@hiepersounds.nl</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-4">Openingstijden</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li>Ma - Vr: 10:00 - 22:00</li>
+            <li>Za: 09:00 - 23:00</li>
+            <li>Zo: Gesloten</li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-white/5 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-gray-500 text-sm">KVK: 72368926 | BTW: NL002329138B16</p>
+        <p class="text-gray-500 text-sm">Gebouwd door <a href="https://www.code-lieshout.nl" class="text-gray-400 hover:text-white cursor-pointer transition-colors duration-200">Code Lieshout</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('menu-toggle').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
