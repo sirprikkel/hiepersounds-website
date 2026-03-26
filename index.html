@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hieper Sounds — We Make Your Event</title>
+  <meta name="description" content="Hieper Sounds levert professionele DJ shows, licht- en geluidsverhuur en entertainment voor evenementen, bruiloften en bedrijfsfeesten in de regio Oss.">
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Righteous&display=swap" rel="stylesheet">
+  <!-- Umami analytics: configureer na deploy -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1E1B4B',
+            secondary: '#4338CA',
+            cta: '#22C55E',
+            dark: '#0F0F23',
+            'dark-card': 'rgba(30, 27, 75, 0.5)',
+            'dark-lighter': '#161638',
+          },
+          fontFamily: {
+            display: ['Righteous', 'sans-serif'],
+            sans: ['Poppins', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background: #0F0F23; color: #F8FAFC; font-family: 'Poppins', sans-serif; }
+    .glow-text { text-shadow: 0 0 20px rgba(67, 56, 202, 0.5), 0 0 40px rgba(67, 56, 202, 0.2); }
+    .glow-green { text-shadow: 0 0 20px rgba(34, 197, 94, 0.5); }
+    .glow-card { box-shadow: 0 0 30px rgba(67, 56, 202, 0.15), inset 0 1px 0 rgba(255,255,255,0.05); }
+    .glow-card:hover { box-shadow: 0 0 40px rgba(67, 56, 202, 0.3), inset 0 1px 0 rgba(255,255,255,0.1); }
+    .gradient-border { background: linear-gradient(135deg, rgba(67,56,202,0.3), rgba(34,197,94,0.3)); padding: 1px; border-radius: 1rem; }
+    .gradient-border > div { background: #0F0F23; border-radius: calc(1rem - 1px); }
+    .hero-gradient { background: linear-gradient(135deg, #0F0F23 0%, #1E1B4B 50%, #0F0F23 100%); }
+    .animate-pulse-slow { animation: pulse-slow 4s ease-in-out infinite; }
+    @keyframes pulse-slow { 0%, 100% { opacity: 0.4; } 50% { opacity: 0.8; } }
+    .equalizer-bar { animation: eq var(--duration) ease-in-out infinite alternate; }
+    @keyframes eq { 0% { height: var(--min-h); } 100% { height: var(--max-h); } }
+    @media (prefers-reduced-motion: reduce) {
+      .animate-pulse-slow, .equalizer-bar { animation: none; }
+    }
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-dark/90 backdrop-blur-md border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <a href="index.html" class="flex items-center gap-3 cursor-pointer">
+          <img src="images/logo.png" alt="Hieper Sounds logo" class="h-8 w-8">
+          <span class="font-display text-xl text-white">Hieper Sounds</span>
+        </a>
+        <div class="hidden md:flex items-center gap-8">
+          <a href="index.html" class="text-cta font-medium text-sm cursor-pointer transition-colors duration-200 hover:text-white">Home</a>
+          <a href="dj-shows.html" class="text-gray-300 font-medium text-sm cursor-pointer transition-colors duration-200 hover:text-white">DJ Shows</a>
+          <a href="djs.html" class="text-gray-300 font-medium text-sm cursor-pointer transition-colors duration-200 hover:text-white">DJ's</a>
+          <a href="verhuur.html" class="text-gray-300 font-medium text-sm cursor-pointer transition-colors duration-200 hover:text-white">Verhuur</a>
+          <a href="contact.html" class="text-gray-300 font-medium text-sm cursor-pointer transition-colors duration-200 hover:text-white">Contact</a>
+          <a href="contact.html" class="bg-cta hover:bg-green-400 text-dark font-semibold px-5 py-2.5 rounded-full text-sm cursor-pointer transition-all duration-200 hover:shadow-[0_0_20px_rgba(34,197,94,0.4)]">Boek Nu</a>
+        </div>
+        <button id="menu-toggle" class="md:hidden text-white cursor-pointer p-2 min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Menu openen">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-dark/95 backdrop-blur-md border-t border-white/5">
+      <div class="px-4 py-6 space-y-4">
+        <a href="index.html" class="block text-cta font-medium cursor-pointer py-2">Home</a>
+        <a href="dj-shows.html" class="block text-gray-300 font-medium cursor-pointer py-2">DJ Shows</a>
+        <a href="djs.html" class="block text-gray-300 font-medium cursor-pointer py-2">DJ's</a>
+        <a href="verhuur.html" class="block text-gray-300 font-medium cursor-pointer py-2">Verhuur</a>
+        <a href="contact.html" class="block text-gray-300 font-medium cursor-pointer py-2">Contact</a>
+        <a href="contact.html" class="block bg-cta text-dark font-semibold px-5 py-3 rounded-full text-center cursor-pointer mt-4">Boek Nu</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-gradient min-h-screen flex items-center relative overflow-hidden pt-20">
+    <!-- Animated background elements -->
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-[120px] animate-pulse-slow"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-cta/10 rounded-full blur-[100px] animate-pulse-slow" style="animation-delay: 2s;"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 relative z-10 w-full">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div class="space-y-8">
+          <!-- Equalizer visual -->
+          <div class="flex items-end gap-1 h-8">
+            <div class="w-1.5 bg-cta rounded-full equalizer-bar" style="--min-h: 8px; --max-h: 32px; --duration: 0.8s;"></div>
+            <div class="w-1.5 bg-secondary rounded-full equalizer-bar" style="--min-h: 12px; --max-h: 24px; --duration: 0.6s;"></div>
+            <div class="w-1.5 bg-cta rounded-full equalizer-bar" style="--min-h: 6px; --max-h: 28px; --duration: 1s;"></div>
+            <div class="w-1.5 bg-secondary rounded-full equalizer-bar" style="--min-h: 10px; --max-h: 20px; --duration: 0.7s;"></div>
+            <div class="w-1.5 bg-cta rounded-full equalizer-bar" style="--min-h: 8px; --max-h: 32px; --duration: 0.9s;"></div>
+          </div>
+          <h1 class="font-display text-5xl md:text-6xl lg:text-7xl leading-tight glow-text">
+            We Make<br>Your <span class="text-cta glow-green">Event</span>
+          </h1>
+          <p class="text-gray-300 text-lg md:text-xl max-w-lg leading-relaxed">
+            Technische dienstverlening voor evenementen, bruiloften, live optredens en presentaties. Persoonlijke aanpak met korte lijnen.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="dj-shows.html" class="bg-cta hover:bg-green-400 text-dark font-semibold px-8 py-4 rounded-full text-center cursor-pointer transition-all duration-200 hover:shadow-[0_0_25px_rgba(34,197,94,0.4)] text-lg min-h-[44px]">
+              Bekijk Shows
+            </a>
+            <a href="contact.html" class="border border-white/20 hover:border-white/40 text-white font-medium px-8 py-4 rounded-full text-center cursor-pointer transition-all duration-200 hover:bg-white/5 text-lg min-h-[44px]">
+              Neem Contact Op
+            </a>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="gradient-border">
+            <div class="p-2">
+              <img src="images/exclusief.jpg" alt="Exclusieve DJ show van Hieper Sounds" class="w-full rounded-xl object-cover aspect-[4/3]" loading="eager">
+            </div>
+          </div>
+          <!-- Floating badge -->
+          <div class="absolute -bottom-4 -left-4 bg-dark-lighter border border-secondary/30 rounded-2xl px-5 py-3 glow-card">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-cta/20 rounded-full flex items-center justify-center">
+                <svg class="w-5 h-5 text-cta" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <div>
+                <p class="text-white font-semibold text-sm">⭐ 5.0 Google Rating</p>
+                <p class="text-gray-400 text-xs">Super service!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="py-24 md:py-32 relative">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-cta font-semibold text-sm uppercase tracking-widest mb-4">Onze Diensten</p>
+        <h2 class="font-display text-4xl md:text-5xl glow-text">Alles voor uw event</h2>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- DJ Shows -->
+        <a href="dj-shows.html" class="group glow-card bg-dark-card backdrop-blur-sm rounded-2xl p-8 border border-white/5 cursor-pointer transition-all duration-300 hover:-translate-y-1">
+          <div class="w-14 h-14 bg-secondary/20 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-secondary/30 transition-colors duration-200">
+            <svg class="w-7 h-7 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/></svg>
+          </div>
+          <h3 class="font-display text-2xl text-white mb-3">DJ Shows</h3>
+          <p class="text-gray-400 leading-relaxed">Van intimate Basic Shows tot spectaculaire Exclusieve Shows met truss constructie en lichttechnicus.</p>
+          <p class="text-cta font-medium mt-4 group-hover:translate-x-1 transition-transform duration-200">Vanaf €450 →</p>
+        </a>
+        <!-- Verhuur -->
+        <a href="verhuur.html" class="group glow-card bg-dark-card backdrop-blur-sm rounded-2xl p-8 border border-white/5 cursor-pointer transition-all duration-300 hover:-translate-y-1">
+          <div class="w-14 h-14 bg-cta/20 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-cta/30 transition-colors duration-200">
+            <svg class="w-7 h-7 text-cta" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/></svg>
+          </div>
+          <h3 class="font-display text-2xl text-white mb-3">Verhuur</h3>
+          <p class="text-gray-400 leading-relaxed">Geluid, verlichting, special FX en bekabeling. Hoogwaardige merken voor elk evenement.</p>
+          <p class="text-cta font-medium mt-4 group-hover:translate-x-1 transition-transform duration-200">Bekijk assortiment →</p>
+        </a>
+        <!-- DJ's & Artiesten -->
+        <a href="djs.html" class="group glow-card bg-dark-card backdrop-blur-sm rounded-2xl p-8 border border-white/5 cursor-pointer transition-all duration-300 hover:-translate-y-1">
+          <div class="w-14 h-14 bg-purple-500/20 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-purple-500/30 transition-colors duration-200">
+            <svg class="w-7 h-7 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <h3 class="font-display text-2xl text-white mb-3">DJ's & Artiesten</h3>
+          <p class="text-gray-400 leading-relaxed">Professionele DJ's en artiesten voor elk soort feest. Allround tot gespecialiseerd.</p>
+          <p class="text-cta font-medium mt-4 group-hover:translate-x-1 transition-transform duration-200">Ontdek het team →</p>
+        </a>
+        <!-- Techniek -->
+        <div class="group glow-card bg-dark-card backdrop-blur-sm rounded-2xl p-8 border border-white/5 transition-all duration-300">
+          <div class="w-14 h-14 bg-blue-500/20 rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <h3 class="font-display text-2xl text-white mb-3">Techniek</h3>
+          <p class="text-gray-400 leading-relaxed">Elektrotechnicus, geluidstechnicus, lichttechnicus en roadies voor uw evenement.</p>
+        </div>
+        <!-- Shows op Maat -->
+        <div class="group glow-card bg-dark-card backdrop-blur-sm rounded-2xl p-8 border border-white/5 transition-all duration-300">
+          <div class="w-14 h-14 bg-amber-500/20 rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+          </div>
+          <h3 class="font-display text-2xl text-white mb-3">Shows op Maat</h3>
+          <p class="text-gray-400 leading-relaxed">Custom shows naar uw wensen en eisen. Samen stellen we de perfecte set samen binnen uw budget.</p>
+        </div>
+        <!-- Verkoop -->
+        <div class="group glow-card bg-dark-card backdrop-blur-sm rounded-2xl p-8 border border-white/5 transition-all duration-300">
+          <div class="w-14 h-14 bg-pink-500/20 rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+          </div>
+          <h3 class="font-display text-2xl text-white mb-3">Verkoop</h3>
+          <p class="text-gray-400 leading-relaxed">Confetti shooters, LED feestartikelen, glow sticks, ballonnen en meer voor een knalfeest.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DJ Shows Preview (Playlist-style) -->
+  <section class="py-24 md:py-32 relative bg-dark-lighter/50">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-cta font-semibold text-sm uppercase tracking-widest mb-4">Show Pakketten</p>
+        <h2 class="font-display text-4xl md:text-5xl glow-text">Kies jouw show</h2>
+        <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Van compact en voordelig tot spectaculair en onvergetelijk. Alle shows inclusief halen en brengen tot 20 km rondom Oss.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Basic -->
+        <div class="glow-card bg-dark-card backdrop-blur-sm rounded-2xl overflow-hidden border border-white/5 transition-all duration-300 hover:-translate-y-1">
+          <div class="h-2 bg-gradient-to-r from-secondary to-blue-500"></div>
+          <div class="p-6">
+            <span class="text-xs font-semibold text-secondary uppercase tracking-wider">Basic</span>
+            <h3 class="font-display text-xl text-white mt-2 mb-1">Basic Shows</h3>
+            <p class="text-3xl font-bold text-white mt-3">€450<span class="text-sm font-normal text-gray-400"> excl. BTW</span></p>
+            <ul class="mt-5 space-y-3 text-sm text-gray-300">
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-cta mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Geluid voor 70+ personen</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-cta mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Sfeerlichtset</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-cta mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>DJ Booth Basic</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-cta mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>DJ 5 uur</li>
+            </ul>
+            <a href="contact.html" class="mt-6 block text-center border border-secondary/50 hover:bg-secondary/10 text-secondary font-medium py-3 rounded-xl cursor-pointer transition-all duration-200 min-h-[44px]">Boek deze show</a>
+          </div>
+        </div>
+        <!-- Premium Basic -->
+        <div class="glow-card bg-dark-card backdrop-blur-sm rounded-2xl overflow-hidden border border-white/5 transition-all duration-300 hover:-translate-y-1">
+          <div class="h-2 bg-gradient-to-r from-purple-500 to-secondary"></div>
+          <div class="p-6">
+            <span class="text-xs font-semibold text-purple-400 uppercase tracking-wider">Premium Basic</span>
+            <h3 class="font-display text-xl text-white mt-2 mb-1">Premium Basic</h3>
+            <p class="text-3xl font-bold text-white mt-3">€499<span class="text-sm font-normal text-gray-400"> excl. BTW</span></p>
+            <ul class="mt-5 space-y-3 text-sm text-gray-300">
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-cta mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Geluid voor 70+ personen</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-cta mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Sfeerlichtset</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-cta mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>DJ Booth Premium</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-cta mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>DJ 5 uur</li>
+            </ul>
+            <a href="contact.html" class="mt-6 block text-center border border-purple-500/50 hover:bg-purple-500/10 text-purple-400 font-medium py-3 rounded-xl cursor-pointer transition-all duration-200 min-h-[44px]">Boek deze show</a>
+          </div>
+        </div>
+        <!-- Premium -->
+        <div class="glow-card bg-dark-card backdrop-blur-sm rounded-2xl overflow-hidden border border-cta/30 transition-all duration-300 hover:-translate-y-1 relative">
+          <div class="absolute -top-px left-1/2 -translate-x-1/2 bg-cta text-dark text-xs font-bold px-4 py-1 rounded-b-lg">Populair</div>
+          <div class="h-2 bg-gradient-to-r from-cta to-emerald-400"></div>
+          <div class="p-6 pt-8">
+            <span class="text-xs font-semibold text-cta uppercase tracking-wider">Premium</span>
+            <h3 class="font-display text-xl text-white mt-2 mb-1">Premium Shows</h3>
+            <p class="text-3xl font-bold text-white mt-3">€725<span class="text-sm font-normal text-gray-400"> excl. BTW</span></p>
+            <ul class="mt-5 space-y-3 text-sm text-gray-300">
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-cta mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Geluid voor 150+ personen</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-cta mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>4m Backtruss + Movingheads</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-cta mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>DJ Booth Premium</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-cta mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>DJ 5 uur</li>
+            </ul>
+            <a href="contact.html" class="mt-6 block text-center bg-cta hover:bg-green-400 text-dark font-semibold py-3 rounded-xl cursor-pointer transition-all duration-200 hover:shadow-[0_0_20px_rgba(34,197,94,0.3)] min-h-[44px]">Boek deze show</a>
+          </div>
+        </div>
+        <!-- Exclusief -->
+        <div class="glow-card bg-dark-card backdrop-blur-sm rounded-2xl overflow-hidden border border-white/5 transition-all duration-300 hover:-translate-y-1">
+          <div class="h-2 bg-gradient-to-r from-amber-500 to-orange-500"></div>
+          <div class="p-6">
+            <span class="text-xs font-semibold text-amber-400 uppercase tracking-wider">Exclusief</span>
+            <h3 class="font-display text-xl text-white mt-2 mb-1">Exclusieve Shows</h3>
+            <p class="text-3xl font-bold text-white mt-3">€1.345<span class="text-sm font-normal text-gray-400"> excl. BTW</span></p>
+            <ul class="mt-5 space-y-3 text-sm text-gray-300">
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-cta mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Geluid voor 250+ personen</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-cta mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Truss + 10x Movinghead</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-cta mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Lichttechnicus 5 uur</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-cta mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>DJ 5 uur</li>
+            </ul>
+            <a href="contact.html" class="mt-6 block text-center border border-amber-500/50 hover:bg-amber-500/10 text-amber-400 font-medium py-3 rounded-xl cursor-pointer transition-all duration-200 min-h-[44px]">Boek deze show</a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-12">
+        <a href="dj-shows.html" class="text-cta font-medium cursor-pointer hover:text-green-400 transition-colors duration-200">Alle shows bekijken met volledige details →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Artist Spotlight -->
+  <section class="py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-cta font-semibold text-sm uppercase tracking-widest mb-4">Artist Spotlight</p>
+        <h2 class="font-display text-4xl md:text-5xl glow-text">Onze DJ's</h2>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- DJ Eleven -->
+        <div class="group glow-card bg-dark-card backdrop-blur-sm rounded-2xl overflow-hidden border border-white/5 transition-all duration-300 hover:-translate-y-1">
+          <div class="aspect-square overflow-hidden">
+            <img src="images/dj-event.jpg" alt="DJ Eleven" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+          </div>
+          <div class="p-5">
+            <h3 class="font-display text-lg text-white">DJ Eleven</h3>
+            <p class="text-gray-400 text-sm mt-1">60's t/m Hardcore</p>
+            <div class="flex gap-1 mt-3">
+              <span class="bg-secondary/20 text-secondary text-xs px-2 py-1 rounded-full">Allround</span>
+              <span class="bg-cta/20 text-cta text-xs px-2 py-1 rounded-full">Ervaren</span>
+            </div>
+          </div>
+        </div>
+        <!-- DJ Twan -->
+        <div class="group glow-card bg-dark-card backdrop-blur-sm rounded-2xl overflow-hidden border border-white/5 transition-all duration-300 hover:-translate-y-1">
+          <div class="aspect-square overflow-hidden">
+            <img src="images/dj-twan.jpg" alt="DJ Twan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+          </div>
+          <div class="p-5">
+            <h3 class="font-display text-lg text-white">DJ Twan</h3>
+            <p class="text-gray-400 text-sm mt-1">70's t/m House</p>
+            <div class="flex gap-1 mt-3">
+              <span class="bg-secondary/20 text-secondary text-xs px-2 py-1 rounded-full">Allround</span>
+              <span class="bg-purple-500/20 text-purple-400 text-xs px-2 py-1 rounded-full">Dance</span>
+            </div>
+          </div>
+        </div>
+        <!-- DJ Alex -->
+        <div class="group glow-card bg-dark-card backdrop-blur-sm rounded-2xl overflow-hidden border border-white/5 transition-all duration-300 hover:-translate-y-1">
+          <div class="aspect-square overflow-hidden">
+            <img src="images/dj-alex.jpg" alt="DJ Alex" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+          </div>
+          <div class="p-5">
+            <h3 class="font-display text-lg text-white">DJ Alex</h3>
+            <p class="text-gray-400 text-sm mt-1">Jazz, Lounge, Ibiza</p>
+            <div class="flex gap-1 mt-3">
+              <span class="bg-amber-500/20 text-amber-400 text-xs px-2 py-1 rounded-full">Lounge</span>
+              <span class="bg-blue-500/20 text-blue-400 text-xs px-2 py-1 rounded-full">House</span>
+            </div>
+          </div>
+        </div>
+        <!-- DJ On The Floor -->
+        <div class="group glow-card bg-dark-card backdrop-blur-sm rounded-2xl overflow-hidden border border-white/5 transition-all duration-300 hover:-translate-y-1">
+          <div class="aspect-square overflow-hidden bg-primary/30 flex items-center justify-center">
+            <img src="images/google_place_3.jpg" alt="DJ On The Floor" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+          </div>
+          <div class="p-5">
+            <h3 class="font-display text-lg text-white">DJ On The Floor</h3>
+            <p class="text-gray-400 text-sm mt-1">Pop, Dance, House</p>
+            <div class="flex gap-1 mt-3">
+              <span class="bg-pink-500/20 text-pink-400 text-xs px-2 py-1 rounded-full">Happy Vibes</span>
+              <span class="bg-cta/20 text-cta text-xs px-2 py-1 rounded-full">Dance</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-12">
+        <a href="djs.html" class="text-cta font-medium cursor-pointer hover:text-green-400 transition-colors duration-200">Bekijk alle DJ's en artiesten →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="py-24 md:py-32 bg-dark-lighter/50">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-cta font-semibold text-sm uppercase tracking-widest mb-4">Gallery</p>
+        <h2 class="font-display text-4xl md:text-5xl glow-text">Shows in actie</h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+        <div class="col-span-2 row-span-2 rounded-2xl overflow-hidden cursor-pointer group" onclick="openLightbox(this.querySelector('img'))">
+          <img src="images/exclusief.jpg" alt="Exclusieve DJ show setup" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+        </div>
+        <div class="rounded-2xl overflow-hidden cursor-pointer group" onclick="openLightbox(this.querySelector('img'))">
+          <img src="images/custom-show.jpg" alt="Custom show opstelling" class="w-full h-full object-cover aspect-square group-hover:scale-105 transition-transform duration-500" loading="lazy">
+        </div>
+        <div class="rounded-2xl overflow-hidden cursor-pointer group" onclick="openLightbox(this.querySelector('img'))">
+          <img src="images/event1.jpg" alt="Evenement met lichtshow" class="w-full h-full object-cover aspect-square group-hover:scale-105 transition-transform duration-500" loading="lazy">
+        </div>
+        <div class="rounded-2xl overflow-hidden cursor-pointer group" onclick="openLightbox(this.querySelector('img'))">
+          <img src="images/show-dsc.jpg" alt="DJ show in actie" class="w-full h-full object-cover aspect-square group-hover:scale-105 transition-transform duration-500" loading="lazy">
+        </div>
+        <div class="rounded-2xl overflow-hidden cursor-pointer group" onclick="openLightbox(this.querySelector('img'))">
+          <img src="images/zilver-show.jpg" alt="Show met zilver thema" class="w-full h-full object-cover aspect-square group-hover:scale-105 transition-transform duration-500" loading="lazy">
+        </div>
+        <div class="rounded-2xl overflow-hidden cursor-pointer group" onclick="openLightbox(this.querySelector('img'))">
+          <img src="images/event2.jpg" alt="Feest met DJ" class="w-full h-full object-cover aspect-square group-hover:scale-105 transition-transform duration-500" loading="lazy">
+        </div>
+        <div class="rounded-2xl overflow-hidden cursor-pointer group" onclick="openLightbox(this.querySelector('img'))">
+          <img src="images/bigband.jpg" alt="Bigband evenement" class="w-full h-full object-cover aspect-square group-hover:scale-105 transition-transform duration-500" loading="lazy">
+        </div>
+        <div class="rounded-2xl overflow-hidden cursor-pointer group" onclick="openLightbox(this.querySelector('img'))">
+          <img src="images/custom-show2.jpg" alt="Custom show" class="w-full h-full object-cover aspect-square group-hover:scale-105 transition-transform duration-500" loading="lazy">
+        </div>
+        <div class="rounded-2xl overflow-hidden cursor-pointer group" onclick="openLightbox(this.querySelector('img'))">
+          <img src="images/event3.jpg" alt="Evenement sfeer" class="w-full h-full object-cover aspect-square group-hover:scale-105 transition-transform duration-500" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-cta font-semibold text-sm uppercase tracking-widest mb-4">Reviews</p>
+        <h2 class="font-display text-4xl md:text-5xl glow-text">⭐ 5.0 op Google</h2>
+      </div>
+      <div class="max-w-2xl mx-auto">
+        <div class="glow-card bg-dark-card backdrop-blur-sm rounded-2xl p-8 border border-white/5">
+          <div class="flex items-center gap-1 mb-4">
+            <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <blockquote class="text-lg text-gray-200 italic leading-relaxed">"Super service en denken altijd goed met je mee."</blockquote>
+          <p class="text-gray-400 mt-4">— Wilma Richters, Google Review</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brands -->
+  <section class="py-16 border-t border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+      <p class="text-center text-gray-500 text-sm uppercase tracking-widest mb-8">Merken waar wij mee werken</p>
+      <div class="flex flex-wrap items-center justify-center gap-8 md:gap-12 opacity-50">
+        <span class="text-gray-400 font-medium text-sm">d&b audiotechnik</span>
+        <span class="text-gray-400 font-medium text-sm">Shure</span>
+        <span class="text-gray-400 font-medium text-sm">Electro-Voice</span>
+        <span class="text-gray-400 font-medium text-sm">Pioneer DJ</span>
+        <span class="text-gray-400 font-medium text-sm">Mackie</span>
+        <span class="text-gray-400 font-medium text-sm">Soundcraft</span>
+        <span class="text-gray-400 font-medium text-sm">American DJ</span>
+        <span class="text-gray-400 font-medium text-sm">Showtec</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-24 md:py-32 relative overflow-hidden">
+    <div class="absolute inset-0">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-secondary/10 rounded-full blur-[150px]"></div>
+    </div>
+    <div class="max-w-3xl mx-auto px-4 md:px-6 lg:px-8 text-center relative z-10">
+      <h2 class="font-display text-4xl md:text-5xl glow-text mb-6">Klaar voor een onvergetelijk event?</h2>
+      <p class="text-gray-300 text-lg mb-10 max-w-xl mx-auto">Neem vrijblijvend contact op. Samen stellen we de perfecte show samen die past bij uw wensen en budget.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="contact.html" class="bg-cta hover:bg-green-400 text-dark font-semibold px-10 py-4 rounded-full cursor-pointer transition-all duration-200 hover:shadow-[0_0_30px_rgba(34,197,94,0.4)] text-lg min-h-[44px]">
+          Neem Contact Op
+        </a>
+        <a href="tel:0629801440" class="border border-white/20 hover:border-white/40 text-white font-medium px-10 py-4 rounded-full cursor-pointer transition-all duration-200 hover:bg-white/5 text-lg min-h-[44px]">
+          06-29801440
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black/30 border-t border-white/5 py-16">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-12">
+        <div class="md:col-span-1">
+          <div class="flex items-center gap-3 mb-4">
+            <img src="images/logo.png" alt="Hieper Sounds" class="h-8 w-8">
+            <span class="font-display text-xl text-white">Hieper Sounds</span>
+          </div>
+          <p class="text-gray-400 text-sm leading-relaxed">Technische dienstverlening voor evenementen, bruiloften, live optredens en presentaties.</p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-4">Diensten</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="dj-shows.html" class="text-gray-400 hover:text-white cursor-pointer transition-colors duration-200">DJ Shows</a></li>
+            <li><a href="djs.html" class="text-gray-400 hover:text-white cursor-pointer transition-colors duration-200">DJ's & Artiesten</a></li>
+            <li><a href="verhuur.html" class="text-gray-400 hover:text-white cursor-pointer transition-colors duration-200">Verhuur</a></li>
+            <li><a href="contact.html" class="text-gray-400 hover:text-white cursor-pointer transition-colors duration-200">Boeken</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-4">Contact</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li>Schadewijkstraat 27</li>
+            <li>5348 BA Oss</li>
+            <li class="pt-2"><a href="tel:0629801440" class="hover:text-white cursor-pointer transition-colors duration-200">06-29801440</a></li>
+            <li><a href="mailto:info@hiepersounds.nl" class="hover:text-white cursor-pointer transition-colors duration-200">info@hiepersounds.nl</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-4">Openingstijden</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li>Ma - Vr: 10:00 - 22:00</li>
+            <li>Za: 09:00 - 23:00</li>
+            <li>Zo: Gesloten</li>
+          </ul>
+          <a href="https://www.google.com/maps/search/Hieper+Sounds+Oss" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-cta text-sm mt-4 cursor-pointer hover:text-green-400 transition-colors duration-200">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            Bekijk op Google Maps
+          </a>
+        </div>
+      </div>
+      <div class="border-t border-white/5 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-gray-500 text-sm">KVK: 72368926 | BTW: NL002329138B16</p>
+        <p class="text-gray-500 text-sm">Gebouwd door <a href="https://www.code-lieshout.nl" class="text-gray-400 hover:text-white cursor-pointer transition-colors duration-200">Code Lieshout</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 hidden items-center justify-center cursor-pointer" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="" class="max-w-[90vw] max-h-[90vh] object-contain rounded-lg">
+    <button class="absolute top-6 right-6 text-white/70 hover:text-white cursor-pointer min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Sluiten">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <script>
+    // Mobile menu
+    document.getElementById('menu-toggle').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+
+    // Lightbox
+    function openLightbox(img) {
+      const lb = document.getElementById('lightbox');
+      document.getElementById('lightbox-img').src = img.src;
+      document.getElementById('lightbox-img').alt = img.alt;
+      lb.classList.remove('hidden');
+      lb.classList.add('flex');
+    }
+    function closeLightbox() {
+      const lb = document.getElementById('lightbox');
+      lb.classList.add('hidden');
+      lb.classList.remove('flex');
+    }
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+  </script>
+</body>
+</html>

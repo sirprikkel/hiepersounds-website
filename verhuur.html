@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verhuur — Hieper Sounds</title>
+  <meta name="description" content="Huur professioneel geluid, verlichting, special FX en bekabeling bij Hieper Sounds in Oss. Hoogwaardige merken voor elk evenement.">
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Righteous&display=swap" rel="stylesheet">
+  <!-- Umami analytics: configureer na deploy -->
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: { primary: '#1E1B4B', secondary: '#4338CA', cta: '#22C55E', dark: '#0F0F23', 'dark-card': 'rgba(30, 27, 75, 0.5)', 'dark-lighter': '#161638' },
+        fontFamily: { display: ['Righteous', 'sans-serif'], sans: ['Poppins', 'sans-serif'] }
+      }}
+    }
+  </script>
+  <style>
+    body { background: #0F0F23; color: #F8FAFC; font-family: 'Poppins', sans-serif; }
+    .glow-text { text-shadow: 0 0 20px rgba(67, 56, 202, 0.5), 0 0 40px rgba(67, 56, 202, 0.2); }
+    .glow-card { box-shadow: 0 0 30px rgba(67, 56, 202, 0.15), inset 0 1px 0 rgba(255,255,255,0.05); }
+    .glow-card:hover { box-shadow: 0 0 40px rgba(67, 56, 202, 0.3), inset 0 1px 0 rgba(255,255,255,0.1); }
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-dark/90 backdrop-blur-md border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <a href="index.html" class="flex items-center gap-3 cursor-pointer">
+          <img src="images/logo.png" alt="Hieper Sounds logo" class="h-8 w-8">
+          <span class="font-display text-xl text-white">Hieper Sounds</span>
+        </a>
+        <div class="hidden md:flex items-center gap-8">
+          <a href="index.html" class="text-gray-300 font-medium text-sm cursor-pointer transition-colors duration-200 hover:text-white">Home</a>
+          <a href="dj-shows.html" class="text-gray-300 font-medium text-sm cursor-pointer transition-colors duration-200 hover:text-white">DJ Shows</a>
+          <a href="djs.html" class="text-gray-300 font-medium text-sm cursor-pointer transition-colors duration-200 hover:text-white">DJ's</a>
+          <a href="verhuur.html" class="text-cta font-medium text-sm cursor-pointer transition-colors duration-200 hover:text-white">Verhuur</a>
+          <a href="contact.html" class="text-gray-300 font-medium text-sm cursor-pointer transition-colors duration-200 hover:text-white">Contact</a>
+          <a href="contact.html" class="bg-cta hover:bg-green-400 text-dark font-semibold px-5 py-2.5 rounded-full text-sm cursor-pointer transition-all duration-200 hover:shadow-[0_0_20px_rgba(34,197,94,0.4)]">Boek Nu</a>
+        </div>
+        <button id="menu-toggle" class="md:hidden text-white cursor-pointer p-2 min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-dark/95 backdrop-blur-md border-t border-white/5">
+      <div class="px-4 py-6 space-y-4">
+        <a href="index.html" class="block text-gray-300 font-medium cursor-pointer py-2">Home</a>
+        <a href="dj-shows.html" class="block text-gray-300 font-medium cursor-pointer py-2">DJ Shows</a>
+        <a href="djs.html" class="block text-gray-300 font-medium cursor-pointer py-2">DJ's</a>
+        <a href="verhuur.html" class="block text-cta font-medium cursor-pointer py-2">Verhuur</a>
+        <a href="contact.html" class="block text-gray-300 font-medium cursor-pointer py-2">Contact</a>
+        <a href="contact.html" class="block bg-cta text-dark font-semibold px-5 py-3 rounded-full text-center cursor-pointer mt-4">Boek Nu</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="pt-32 pb-16 relative">
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute top-1/3 right-1/3 w-80 h-80 bg-cta/10 rounded-full blur-[120px]"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+      <p class="text-cta font-semibold text-sm uppercase tracking-widest mb-4">Verhuur Assortiment</p>
+      <h1 class="font-display text-5xl md:text-6xl glow-text mb-6">Verhuur</h1>
+      <p class="text-gray-300 text-lg max-w-2xl">Een greep uit ons verhuur assortiment. Niet gevonden wat u nodig heeft? Neem gerust contact met ons op. Op aanvraag zijn ook meubilair, servies, glaswerk en koelingen te huur.</p>
+    </div>
+  </section>
+
+  <!-- Geluid -->
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+      <div class="flex items-center gap-4 mb-10">
+        <div class="w-12 h-12 bg-secondary/20 rounded-2xl flex items-center justify-center shrink-0">
+          <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/></svg>
+        </div>
+        <h2 class="font-display text-3xl text-white">Geluid</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Mobiele Speaker -->
+        <div class="glow-card bg-dark-card backdrop-blur-sm rounded-2xl border border-white/5 p-6 transition-all duration-300 hover:-translate-y-1">
+          <div class="flex items-start justify-between mb-4">
+            <h3 class="font-semibold text-white text-lg">Mobiele Speaker met accu</h3>
+            <span class="bg-cta/20 text-cta text-sm font-bold px-3 py-1 rounded-full shrink-0 ml-2">€50</span>
+          </div>
+          <p class="text-gray-400 text-sm leading-relaxed mb-4">Compacte 8 inch luidspreker met Bluetooth en verwijderbare accu (tot 12 uur). Digitale geluidsverwerker met presets, Outdoor Modus, en Ducking-functie.</p>
+          <ul class="text-gray-500 text-xs space-y-1">
+            <li>Inclusief: speaker, accu, eurokabel, XLR kabel, microfoon, statief, 2x draagtas</li>
+          </ul>
+          <p class="text-gray-500 text-xs mt-2">Incl. BTW</p>
+        </div>
+        <!-- Speakerset 1 -->
+        <div class="glow-card bg-dark-card backdrop-blur-sm rounded-2xl border border-white/5 p-6 transition-all duration-300 hover:-translate-y-1">
+          <div class="flex items-start justify-between mb-4">
+            <h3 class="font-semibold text-white text-lg">Speakerset 1</h3>
+            <span class="bg-cta/20 text-cta text-sm font-bold px-3 py-1 rounded-full shrink-0 ml-2">€60</span>
+          </div>
+          <p class="text-gray-400 text-sm leading-relaxed mb-4">Actieve + passieve speaker met ingebouwde USB MP3-speler, LCD scherm, microfooningang en lijnbron. Geschikt voor achtergrondmuziek en feestjes.</p>
+          <ul class="text-gray-500 text-xs space-y-1">
+            <li>Inclusief: 2 speakers, speakerkabel, XLR kabel, eurokabel, mini jack, microfoon, 2x statief, draagtas</li>
+          </ul>
+          <p class="text-gray-500 text-xs mt-2">Incl. BTW</p>
+        </div>
+        <!-- Speakerset 2 -->
+        <div class="glow-card bg-dark-card backdrop-blur-sm rounded-2xl border border-white/5 p-6 transition-all duration-300 hover:-translate-y-1">
+          <div class="flex items-start justify-between mb-4">
+            <h3 class="font-semibold text-white text-lg">Speakerset 2</h3>
+            <span class="bg-cta/20 text-cta text-sm font-bold px-3 py-1 rounded-full shrink-0 ml-2">€75</span>
+          </div>
+          <p class="text-gray-400 text-sm leading-relaxed mb-4">Compact actief 2.1 PA-systeem: 10-inch subwoofer + 2 satelliet-speakers. Ingebouwde versterker max 1400W met DSP processor, crossovers en limiters.</p>
+          <ul class="text-gray-500 text-xs space-y-1">
+            <li>Inclusief: subwoofer, 2 tops, 2x speakerkabel, 2x stereojack, eurokabel, 2x statief</li>
+          </ul>
+          <p class="text-gray-500 text-xs mt-2">Incl. BTW</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Verlichting -->
+  <section class="py-16 bg-dark-lighter/30">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+      <div class="flex items-center gap-4 mb-10">
+        <div class="w-12 h-12 bg-amber-500/20 rounded-2xl flex items-center justify-center shrink-0">
+          <svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+        </div>
+        <h2 class="font-display text-3xl text-white">Verlichting</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="glow-card bg-dark-card backdrop-blur-sm rounded-2xl border border-white/5 p-6 transition-all duration-300 hover:-translate-y-1">
+          <div class="flex items-start justify-between mb-4">
+            <h3 class="font-semibold text-white text-lg">Sfeerlichtset</h3>
+            <span class="bg-amber-500/20 text-amber-400 text-sm font-bold px-3 py-1 rounded-full shrink-0 ml-2">€25</span>
+          </div>
+          <p class="text-gray-400 text-sm leading-relaxed mb-4">Complete lichtbasis: vier compacte LED-spots met ingebouwde chases, shows, muziekgestuurde modus, master/slave en DMX. Met praktisch LED-display.</p>
+          <ul class="text-gray-500 text-xs space-y-1">
+            <li>Inclusief: 4 LED-spots, koffer, lichtstatief, eurokabel</li>
+          </ul>
+          <p class="text-gray-500 text-xs mt-2">Incl. BTW</p>
+        </div>
+        <div class="glow-card bg-dark-card backdrop-blur-sm rounded-2xl border border-white/5 p-6 transition-all duration-300 hover:-translate-y-1">
+          <div class="flex items-start justify-between mb-4">
+            <h3 class="font-semibold text-white text-lg">Ledpar</h3>
+            <span class="bg-amber-500/20 text-amber-400 text-sm font-bold px-3 py-1 rounded-full shrink-0 ml-2">€7,50</span>
+          </div>
+          <p class="text-gray-400 text-sm leading-relaxed mb-4">Compacte spot met 7 Tri-LED modules (RGB). Talloze kleurencombinaties. Dubbele beugel: vloergebruik als uplighting of truss-montage. Geluidsgestuurd, master/slave of DMX.</p>
+          <ul class="text-gray-500 text-xs space-y-1">
+            <li>Inclusief: ledpar, eurokabel</li>
+          </ul>
+          <p class="text-gray-500 text-xs mt-2">Incl. BTW</p>
+        </div>
+        <div class="glow-card bg-dark-card backdrop-blur-sm rounded-2xl border border-white/5 p-6 transition-all duration-300 hover:-translate-y-1">
+          <div class="flex items-start justify-between mb-4">
+            <h3 class="font-semibold text-white text-lg">Effectlichtset</h3>
+            <span class="bg-amber-500/20 text-amber-400 text-sm font-bold px-3 py-1 rounded-full shrink-0 ml-2">n.t.b.</span>
+          </div>
+          <p class="text-gray-400 text-sm leading-relaxed">Neem contact op voor beschikbaarheid en prijzen van onze effectlichtsets.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Special FX & Bekabeling -->
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-12">
+        <!-- Special FX -->
+        <div>
+          <div class="flex items-center gap-4 mb-8">
+            <div class="w-12 h-12 bg-purple-500/20 rounded-2xl flex items-center justify-center shrink-0">
+              <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+            </div>
+            <h2 class="font-display text-2xl text-white">Special FX</h2>
+          </div>
+          <div class="glow-card bg-dark-card backdrop-blur-sm rounded-2xl border border-white/5 p-6">
+            <div class="flex items-start justify-between mb-4">
+              <h3 class="font-semibold text-white text-lg">Rookmachine</h3>
+              <span class="bg-purple-500/20 text-purple-400 text-sm font-bold px-3 py-1 rounded-full shrink-0 ml-2">€20</span>
+            </div>
+            <p class="text-gray-400 text-sm">Professionele rookmachine voor sfeervolle effecten op uw evenement.</p>
+          </div>
+        </div>
+        <!-- Bekabeling -->
+        <div>
+          <div class="flex items-center gap-4 mb-8">
+            <div class="w-12 h-12 bg-blue-500/20 rounded-2xl flex items-center justify-center shrink-0">
+              <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <h2 class="font-display text-2xl text-white">Bekabeling</h2>
+          </div>
+          <div class="space-y-3">
+            <div class="glow-card bg-dark-card backdrop-blur-sm rounded-xl border border-white/5 p-4 flex items-center justify-between">
+              <div>
+                <p class="text-white font-medium text-sm">Stekkerblok 230V 2-voudig</p>
+                <p class="text-gray-500 text-xs">IP44, 2m aansluitsnoer</p>
+              </div>
+              <span class="text-cta font-bold text-sm">€6</span>
+            </div>
+            <div class="glow-card bg-dark-card backdrop-blur-sm rounded-xl border border-white/5 p-4 flex items-center justify-between">
+              <div>
+                <p class="text-white font-medium text-sm">Stekkerblok 230V 4-voudig</p>
+                <p class="text-gray-500 text-xs">IP44, 2m aansluitsnoer</p>
+              </div>
+              <span class="text-cta font-bold text-sm">€7,50</span>
+            </div>
+            <div class="glow-card bg-dark-card backdrop-blur-sm rounded-xl border border-white/5 p-4 flex items-center justify-between">
+              <div>
+                <p class="text-white font-medium text-sm">Verlengsnoer 230V 1-voudig</p>
+                <p class="text-gray-500 text-xs">IP44, 10m</p>
+              </div>
+              <span class="text-cta font-bold text-sm">€7,50</span>
+            </div>
+            <div class="glow-card bg-dark-card backdrop-blur-sm rounded-xl border border-white/5 p-4 flex items-center justify-between">
+              <div>
+                <p class="text-white font-medium text-sm">Verdeelblok 400V 16A</p>
+                <p class="text-gray-500 text-xs">1x 16A ceeform → 4x 230V + 2x 400V</p>
+              </div>
+              <span class="text-cta font-bold text-sm">€12,50</span>
+            </div>
+            <div class="glow-card bg-dark-card backdrop-blur-sm rounded-xl border border-white/5 p-4 flex items-center justify-between">
+              <div>
+                <p class="text-white font-medium text-sm">Verlengsnoer 400V 16A</p>
+                <p class="text-gray-500 text-xs">CEEforms, 25 meter</p>
+              </div>
+              <span class="text-cta font-bold text-sm">€30</span>
+            </div>
+            <div class="glow-card bg-dark-card backdrop-blur-sm rounded-xl border border-white/5 p-4 flex items-center justify-between">
+              <div>
+                <p class="text-white font-medium text-sm">Verloop 32A → 16A 400V</p>
+                <p class="text-gray-500 text-xs">4-polig B16 automaat</p>
+              </div>
+              <span class="text-cta font-bold text-sm">€15</span>
+            </div>
+            <div class="glow-card bg-dark-card backdrop-blur-sm rounded-xl border border-white/5 p-4 flex items-center justify-between">
+              <div>
+                <p class="text-white font-medium text-sm">XLR Kabel (Neutrik/Tasker)</p>
+                <p class="text-gray-500 text-xs">3m / 5m / 10m</p>
+              </div>
+              <span class="text-cta font-bold text-sm">€3 – €7,50</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 relative overflow-hidden">
+    <div class="absolute inset-0">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cta/10 rounded-full blur-[150px]"></div>
+    </div>
+    <div class="max-w-3xl mx-auto px-4 md:px-6 lg:px-8 text-center relative z-10">
+      <h2 class="font-display text-4xl md:text-5xl glow-text mb-6">Niet gevonden wat u zoekt?</h2>
+      <p class="text-gray-300 text-lg mb-10">In vele gevallen kunnen wij leveren wat u zoekt. Neem vrijblijvend contact op.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="contact.html" class="bg-cta hover:bg-green-400 text-dark font-semibold px-10 py-4 rounded-full cursor-pointer transition-all duration-200 hover:shadow-[0_0_30px_rgba(34,197,94,0.4)] text-lg min-h-[44px]">Neem Contact Op</a>
+        <a href="tel:0629801440" class="border border-white/20 hover:border-white/40 text-white font-medium px-10 py-4 rounded-full cursor-pointer transition-all duration-200 hover:bg-white/5 text-lg min-h-[44px]">06-29801440</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black/30 border-t border-white/5 py-16">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-12">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <img src="images/logo.png" alt="Hieper Sounds" class="h-8 w-8">
+            <span class="font-display text-xl text-white">Hieper Sounds</span>
+          </div>
+          <p class="text-gray-400 text-sm">We make your event.</p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-4">Diensten</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="dj-shows.html" class="text-gray-400 hover:text-white cursor-pointer transition-colors duration-200">DJ Shows</a></li>
+            <li><a href="djs.html" class="text-gray-400 hover:text-white cursor-pointer transition-colors duration-200">DJ's & Artiesten</a></li>
+            <li><a href="verhuur.html" class="text-gray-400 hover:text-white cursor-pointer transition-colors duration-200">Verhuur</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-4">Contact</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li>Schadewijkstraat 27, 5348 BA Oss</li>
+            <li><a href="tel:0629801440" class="hover:text-white cursor-pointer transition-colors duration-200">06-29801440</a></li>
+            <li><a href="mailto:info@hiepersounds.nl" class="hover:text-white cursor-pointer transition-colors duration-200">info@hiepersounds.nl</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-4">Openingstijden</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li>Ma - Vr: 10:00 - 22:00</li>
+            <li>Za: 09:00 - 23:00</li>
+            <li>Zo: Gesloten</li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-white/5 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-gray-500 text-sm">Alle prijzen incl. BTW tenzij anders vermeld | KVK: 72368926</p>
+        <p class="text-gray-500 text-sm">Gebouwd door <a href="https://www.code-lieshout.nl" class="text-gray-400 hover:text-white cursor-pointer transition-colors duration-200">Code Lieshout</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('menu-toggle').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
